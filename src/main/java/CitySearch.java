@@ -7,21 +7,31 @@ public class CitySearch {
     public List<String> search(String searchString, List<String> cities) {
         ArrayList<String> output = new ArrayList<>();
         for (int ch = 1; ch <= searchString.length(); ch++) {
-            String row = buildOutputRow(searchString, ch, cities);
+            String searchSubString = extractSubStringFrom(searchString, ch);
+            List<String> matches = findPotentialMatches(searchSubString, cities);
+            String row = buildOutputRow(searchSubString, matches);
             output.add(row);
         }
         return output;
     }
 
-    private String buildOutputRow(String searchString, int currentChar, List<String> cities) {
-        String searchSubString = searchString.substring(0, currentChar);
-        String row = searchSubString + ": " + allMatchesInOneString(searchSubString, cities);
-        return row;
+    private String extractSubStringFrom(String searchString, int ch) {
+        return searchString.substring(0, ch);
     }
 
-    private String allMatchesInOneString(String searchString, List<String> cities) {
-        List<String> potentialMatches = findPotentialMatches(searchString, cities);
-        return joinInOneString(potentialMatches);
+    private List<String> findPotentialMatches(String searchSubString, List<String> cities) {
+        ArrayList<String> matches = new ArrayList<>();
+
+        for (String city : cities) {
+            if (city.contains(searchSubString))
+                matches.add(city);
+        }
+        return matches;
+    }
+
+    private String buildOutputRow(String searchSubString, List<String> matches) {
+        String matchesString = joinInOneString(matches);
+        return searchSubString + ": " + matchesString;
     }
 
     private String joinInOneString(List<String> matches) {
@@ -29,16 +39,6 @@ public class CitySearch {
             return "0";
 
         return join(", ", matches);
-    }
-
-    private List<String> findPotentialMatches(String input, List<String> cities) {
-        ArrayList<String> matches = new ArrayList<>();
-
-        for (String city : cities) {
-            if (city.contains(input))
-                matches.add(city);
-        }
-        return matches;
     }
 
     private boolean thereIsNo(List<String> matches) {
