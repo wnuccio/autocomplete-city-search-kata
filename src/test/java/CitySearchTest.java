@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -14,7 +15,7 @@ class CitySearchTest {
 
         List<String> output = citySearch.search("a", asList("a"));
 
-        assertEquals(asList("a"), output);
+        assertEquals(asList("a: a"), output);
     }
 
     @Test
@@ -23,7 +24,7 @@ class CitySearchTest {
 
         List<String> output = citySearch.search("a", asList("b"));
 
-        assertEquals(asList("0"), output);
+        assertEquals(asList("a: 0"), output);
     }
 
     @Test
@@ -32,7 +33,7 @@ class CitySearchTest {
 
         List<String> output = citySearch.search("a", asList("Naples"));
 
-        assertEquals(asList("Naples"), output);
+        assertEquals(asList("a: Naples"), output);
     }
 
     @Test
@@ -41,7 +42,7 @@ class CitySearchTest {
 
         List<String> output = citySearch.search("b", asList("Naples"));
 
-        assertEquals(asList("0"), output);
+        assertEquals(asList("b: 0"), output);
     }
 
     @Test
@@ -50,7 +51,7 @@ class CitySearchTest {
 
         List<String> output = citySearch.search("a", asList("Naples", "Barcelona"));
 
-        assertEquals(asList("Naples", "Barcelona"), output);
+        assertEquals(asList("a: Naples, Barcelona"), output);
     }
 
     @Test
@@ -59,6 +60,16 @@ class CitySearchTest {
 
         List<String> output = citySearch.search("r", asList("Naples", "Barcelona", "Milan", "Paris"));
 
-        assertEquals(asList("Barcelona", "Paris"), output);
+        assertEquals(asList("r: Barcelona, Paris"), output);
     }
+
+    @Test
+    void one_char_input_not_matching_empty_city_list() {
+        CitySearch citySearch = new CitySearch();
+
+        List<String> output = citySearch.search("a", Collections.emptyList());
+
+        assertEquals(asList("a: 0"), output);
+    }
+
 }
