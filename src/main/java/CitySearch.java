@@ -4,8 +4,8 @@ import java.util.List;
 import static java.util.Collections.singletonList;
 
 public class CitySearch {
-    public List<String> search(String input, List<String> cities) {
-        List<String> matches = findPotentialMatches(input, cities);
+    public List<String> search(String searchString, List<String> cities) {
+        List<String> matches = findPotentialMatches(searchString, cities);
 
         if (thereIsNo(matches))
             return singletonList("0");
