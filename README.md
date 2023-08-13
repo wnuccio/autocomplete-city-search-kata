@@ -25,8 +25,8 @@ Cities = {"Las Palmas", "Pamplona", "Palencia", “Palma de Mallorca”, “Ponf
 Search entry string = "Casti"
 
 Output:
-C: Calella de Palafrugell, Palencia, Palma de Mallorca
-Ca: Calella de Palafrugell, Palma de Mallorca
+C: Palencia, Palma de Mallorca, Calella de Palafrugell
+Ca: Palma de Mallorca, Calella de Palafrugell
 Cas: 0
 Cast: 0
 Casti: 0

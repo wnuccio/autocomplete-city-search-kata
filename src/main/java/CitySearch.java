@@ -23,11 +23,15 @@ public class CitySearch {
         ArrayList<String> matches = new ArrayList<>();
 
         for (String city : cities) {
-            boolean doesMatch = city.toLowerCase().contains(searchSubString.toLowerCase());
-            if (doesMatch)
+            boolean anyMatch = anyMatch(searchSubString, city);
+            if (anyMatch)
                 matches.add(city);
         }
         return matches;
+    }
+
+    private boolean anyMatch(String searchSubString, String city) {
+            return city.toLowerCase().contains(searchSubString.toLowerCase());
     }
 
     private String buildOutputRow(String searchSubString, List<String> matches) {
