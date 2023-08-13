@@ -2,29 +2,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.String.join;
-import static java.util.Arrays.asList;
 
 public class CitySearch {
     public List<String> search(String searchString, List<String> cities) {
-        if (searchString.length() == 3) {
-            return asList(
-                    searchString.substring(0, 1) + ": " + allMatchesInOneString(searchString.substring(0, 1), cities),
-                    searchString.substring(0, 2) + ": " + allMatchesInOneString(searchString.substring(0, 2), cities),
-                    searchString.substring(0, 3) + ": " + allMatchesInOneString(searchString.substring(0, 3), cities));
+        ArrayList<String> output = new ArrayList<>();
+        for (int ch = 1; ch <= searchString.length(); ch++) {
+            String row = buildOutputRow(searchString, ch, cities);
+            output.add(row);
         }
+        return output;
+    }
 
-        if (searchString.length() == 2) {
-            return asList(
-                    searchString.substring(0, 1) + ": " + allMatchesInOneString(searchString.substring(0, 1), cities),
-                    searchString.substring(0, 2) + ": " + allMatchesInOneString(searchString.substring(0, 2), cities));
-        }
-
-        if (searchString.length() == 1) {
-            return asList(
-                    searchString.substring(0, 1) + ": " + allMatchesInOneString(searchString.substring(0, 1), cities));
-        }
-
-        throw new UnsupportedOperationException();
+    private String buildOutputRow(String searchString, int currentChar, List<String> cities) {
+        String searchSubString = searchString.substring(0, currentChar);
+        String row = searchSubString + ": " + allMatchesInOneString(searchSubString, cities);
+        return row;
     }
 
     private String allMatchesInOneString(String searchString, List<String> cities) {
