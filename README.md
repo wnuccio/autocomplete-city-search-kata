@@ -33,7 +33,16 @@ Cas: 0
 Cast: 0
 Casti: 0
 
-## Notes on solution
+## Emerging Design Pattern - Notes on solution
+One of the crucial aspect of TDD is the order of test cases,
+how to proceed from simple cases to more complex ones.
+
+There is little research on this (see Transformation Priority Premise by Uncle Bob).
+
+The following are euristhics/patterns which seem to be helpful
+in supporting an evolutionary approach that makes it possible,
+for the design, to gradually emerge.
+
 **Assumptions and corner cases**
 The input is always "correct", so
 - the input string is not null nor empty (but it can be one or many char) 
@@ -66,6 +75,15 @@ The signature takes into account the nature of each dimension from the very begi
 This approach avoids complex refactoring in the future:
 even if in your first test cases you model cities with a single char,
 or the output with a single List, the refactoring will be unnecessarily complex.
+
+**One Dimension at a time**
+Select, for each Dimension, the simplest partition.
+For a collection of values, simplest means "one element". 
+In fact, 0 elements seems a corner case, an exception, while many adds too much complexity at first.
+
+If the partition has a set of fixed values (ex. a boolean which can be true or false),
+start with the one that seems the simplest.
+
 
 
 
