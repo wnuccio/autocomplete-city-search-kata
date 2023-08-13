@@ -3,9 +3,9 @@ import java.util.List;
 
 public class CitySearch {
     public List<String> search(String input, List<String> cities) {
-        if (cities.get(0).charAt(0) != input.charAt(0))
-            return Collections.singletonList("0");
+        if (cities.get(0).contains(input))
+            return Collections.singletonList(cities.get(0));
 
-        return Collections.singletonList("a");
+        return Collections.singletonList("0");
     }
 }

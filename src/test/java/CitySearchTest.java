@@ -10,7 +10,7 @@ class CitySearchTest {
 
 
     @Test
-    void one_input_char_matching_one_char_city() {
+    void one_char_input_matching_one_char_city() {
         CitySearch citySearch = new CitySearch();
 
         List<String> output = citySearch.search("a", asList("a"));
@@ -19,11 +19,20 @@ class CitySearchTest {
     }
 
     @Test
-    void one_input_char_not_matching_one_char_city() {
+    void one_char_input_not_matching_one_char_city() {
         CitySearch citySearch = new CitySearch();
 
         List<String> output = citySearch.search("a", asList("b"));
 
         assertEquals(asList("0"), output);
+    }
+
+    @Test
+    void one_char_input_matching_one_city() {
+        CitySearch citySearch = new CitySearch();
+
+        List<String> output = citySearch.search("a", asList("Naples"));
+
+        assertEquals(asList("Naples"), output);
     }
 }
