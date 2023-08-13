@@ -43,4 +43,13 @@ class CitySearchTest {
 
         assertEquals(asList("0"), output);
     }
+
+    @Test
+    void one_char_input_matching_two_cities() {
+        CitySearch citySearch = new CitySearch();
+
+        List<String> output = citySearch.search("a", asList("Naples", "Barcelona"));
+
+        assertEquals(asList("Naples", "Barcelona"), output);
+    }
 }

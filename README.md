@@ -84,6 +84,18 @@ In fact, 0 elements seems a corner case, an exception, while many adds too much 
 If the partition has a set of fixed values (ex. a boolean which can be true or false),
 start with the one that seems the simplest.
 
+**Generalize conditions**
+The fastest thing to do to make the test pass,
+is adding a special **condition on top** of the method.
+
+As you add more case, make **conditions uniform**: 
+use similar syntax and format.
+This make it easy to generalize it at the right moment.
+
+When you think a generalization is clear, add it at the top, 
+without removing the previous ones.
+
+
 
 
 
