@@ -52,4 +52,11 @@ class CitySearchTest {
 
         assertEquals(asList("Naples", "Barcelona"), output);
     }
+
+    @Test
+    void one_char_input_matching_one_out_of_two_cities() {
+        CitySearch citySearch = new CitySearch();
+
+        assertEquals(asList("Naples"), citySearch.search("p", asList("Naples", "Barcelona")));
+    }
 }

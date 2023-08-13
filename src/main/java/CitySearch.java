@@ -1,12 +1,29 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import static java.util.Collections.singletonList;
 
 public class CitySearch {
     public List<String> search(String input, List<String> cities) {
-        if (cities.stream().allMatch(city -> city.contains(input)))
-            return new ArrayList<>(cities);
+        List<String> matches = findPotentialMatches(input, cities);
 
-        return Collections.singletonList("0");
+        if (thereIsNo(matches))
+            return singletonList("0");
+
+        return matches;
+    }
+
+    private List<String> findPotentialMatches(String input, List<String> cities) {
+        ArrayList<String> matches = new ArrayList<>();
+
+        for (String city : cities) {
+            if (city.contains(input))
+                matches.add(city);
+        }
+        return matches;
+    }
+
+    private boolean thereIsNo(List<String> matches) {
+        return matches.isEmpty();
     }
 }

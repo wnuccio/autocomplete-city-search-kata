@@ -92,10 +92,22 @@ As you add more case, make **conditions uniform**:
 use similar syntax and format.
 This make it easy to generalize it at the right moment.
 
+To explore before generalization, add gradually more test cases for the same partition:
+example, test for 2 elements, 3 elements, 4 elements, until it become evident the recurring pattern.
+
 When you think a generalization is clear, add it at the top, 
 without removing the previous ones.
 
+**Change Forcing Test Case**
+Add a test case that make it evident the limits of current implementation.
+For example, if the the current function checks for **all or nothing**, add the intermediate **one out of** 
 
+In our example, the current implementation checks: if all the cities contains the input, return the whole list.
+We need to introduce a test case to return a partial list.
+
+**Use Ubiquitous Language**
+While choosing names for test cases, methods and logic,
+take insipration from the problem statement: read it carefully, spot the key terms.
 
 
 
