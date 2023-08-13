@@ -72,4 +72,26 @@ class CitySearchTest {
         assertEquals(asList("a: 0"), output);
     }
 
+    @Test
+    void string_input_matching_may_cities_returns_many_lines() {
+        CitySearch citySearch = new CitySearch();
+
+        List<String> output = citySearch.search("ar", asList("Naples", "Barcelona", "Milan", "Paris"));
+
+        assertEquals("a: Naples, Barcelona, Milan, Paris", output.get(0));
+        assertEquals("ar: Barcelona, Paris", output.get(1));
+    }
+
+//    @Test
+//    void string_input_matching_may_cities_returns_many_lines_with_final_zero() {
+//        CitySearch citySearch = new CitySearch();
+//
+//        List<String> output = citySearch.search("arca", asList("Naples", "Barcelona", "Milan", "Paris"));
+//
+//        assertEquals("a: Naples, Barcelona, Milan, Paris", output.get(0));
+//        assertEquals("ar: Barcelona, Paris", output.get(1));
+//        assertEquals("arc: Barcelona", output.get(2));
+//        assertEquals("arca: 0", output.get(3));
+//    }
+//
 }
