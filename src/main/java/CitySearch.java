@@ -23,7 +23,8 @@ public class CitySearch {
         ArrayList<String> matches = new ArrayList<>();
 
         for (String city : cities) {
-            if (city.contains(searchSubString))
+            boolean doesMatch = city.toLowerCase().contains(searchSubString.toLowerCase());
+            if (doesMatch)
                 matches.add(city);
         }
         return matches;

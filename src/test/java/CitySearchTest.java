@@ -94,4 +94,18 @@ class CitySearchTest {
         assertEquals("arc: Barcelona", output.get(2));
         assertEquals("arca: 0", output.get(3));
     }
+
+    @Test
+    void acceptance_test_1() {
+        CitySearch citySearch = new CitySearch();
+        List<String> cities = asList("Las Palmas", "Pamplona", "Palencia", "Palma de Mallorca", "Ponferrada", "Calella de Palafrugell");
+
+        List<String> output = citySearch.search("palma", cities);
+
+        assertEquals("p: Las Palmas, Pamplona, Palencia, Palma de Mallorca, Ponferrada, Calella de Palafrugell", output.get(0));
+        assertEquals("pa: Las Palmas, Pamplona, Palencia, Palma de Mallorca, Calella de Palafrugell", output.get(1));
+        assertEquals("pal: Las Palmas, Palencia, Palma de Mallorca, Calella de Palafrugell", output.get(2));
+        assertEquals("palm: Las Palmas, Palma de Mallorca", output.get(3));
+        assertEquals("palma: Las Palmas, Palma de Mallorca", output.get(4));
+    }
 }
