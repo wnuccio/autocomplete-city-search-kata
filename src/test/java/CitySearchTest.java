@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -34,5 +33,14 @@ class CitySearchTest {
         List<String> output = citySearch.search("a", asList("Naples"));
 
         assertEquals(asList("Naples"), output);
+    }
+
+    @Test
+    void one_char_input_not_matching_one_city() {
+        CitySearch citySearch = new CitySearch();
+
+        List<String> output = citySearch.search("b", asList("Naples"));
+
+        assertEquals(asList("0"), output);
     }
 }
