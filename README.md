@@ -32,3 +32,40 @@ Ca: Calella de Palafrugell, Palma de Mallorca
 Cas: 0
 Cast: 0
 Casti: 0
+
+## Notes on solution
+**Assumptions and corner cases**
+The input is always "correct", so
+- the input string is not null nor empty (but it can be one or many char) 
+- the input list can be empty, one-city, many city
+- each city is not null nor empty (but in can be one or many char)
+
+The corner cases, which violate this constraints should be checked at the end of the process,
+in some final test cases.
+Actually, they could also be checked at the first, but consider that they do not help
+in generalizing and making the solution emerge.
+
+**Dimensions and partitions**
+The problem has the following dimensions:
+    - the input string, which has partitions: empty, one char, many char
+    - the city list, which has partitions: empty, one city, many cities
+    - each city, which has partitions: one char, many char (let's assume that a city cannot be empty: "");
+    - the output, which has partitions: 
+        one line with one city, 
+        one line with "0", 
+        many lines with many cities,
+        many lines with many cities and a final "0"
+
+**Signature and Types**    
+The signature takes into account the nature of each dimension from the very beginning, so:
+    - the input is a String (never a single char)
+    - the cities is a List (not a single String)
+    - each city is a String (not a single char)
+    - the output is a List<String> (not a single String)
+
+This approach avoids complex refactoring in the future:
+even if in your first test cases you model cities with a single char,
+or the output with a single List, the refactoring will be unnecessarily complex.
+
+
+
