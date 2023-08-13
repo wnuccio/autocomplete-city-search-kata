@@ -7,8 +7,6 @@ import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CitySearchTest {
-
-
     @Test
     void one_char_input_matching_one_char_city() {
         CitySearch citySearch = new CitySearch();
