@@ -6,16 +6,30 @@ import static java.util.Arrays.asList;
 
 public class CitySearch {
     public List<String> search(String searchString, List<String> cities) {
-        if (searchString.length() == 2) {
+        if (searchString.length() == 3) {
             return asList(
-                    "a: Naples, Barcelona, Milan, Paris",
-                    "ar: Barcelona, Paris");
+                    searchString.substring(0, 1) + ": " + allMatchesInOneString(searchString.substring(0, 1), cities),
+                    searchString.substring(0, 2) + ": " + allMatchesInOneString(searchString.substring(0, 2), cities),
+                    searchString.substring(0, 3) + ": " + allMatchesInOneString(searchString.substring(0, 3), cities));
         }
 
-        List<String> matches = findPotentialMatches(searchString, cities);
+        if (searchString.length() == 2) {
+            return asList(
+                    searchString.substring(0, 1) + ": " + allMatchesInOneString(searchString.substring(0, 1), cities),
+                    searchString.substring(0, 2) + ": " + allMatchesInOneString(searchString.substring(0, 2), cities));
+        }
 
-        return asList(
-                searchString + ": " + joinInOneString(matches));
+        if (searchString.length() == 1) {
+            return asList(
+                    searchString.substring(0, 1) + ": " + allMatchesInOneString(searchString.substring(0, 1), cities));
+        }
+
+        throw new UnsupportedOperationException();
+    }
+
+    private String allMatchesInOneString(String searchString, List<String> cities) {
+        List<String> potentialMatches = findPotentialMatches(searchString, cities);
+        return joinInOneString(potentialMatches);
     }
 
     private String joinInOneString(List<String> matches) {
