@@ -17,4 +17,13 @@ class CitySearchTest {
 
         assertEquals(asList("a"), output);
     }
+
+    @Test
+    void return_one_char_city_not_matching_one_input_char() {
+        CitySearch citySearch = new CitySearch();
+
+        List<String> output = citySearch.search("a", asList("b"));
+
+        assertEquals(asList("0"), output);
+    }
 }
