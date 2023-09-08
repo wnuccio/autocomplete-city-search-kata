@@ -22,12 +22,14 @@ public class NumberOfJumpTest {
         assertEquals(1, jumps);
     }
 
-    // [0] -> -1
+    // [0] -> 1
+    // this because the first step is always counted, as it matches the first element,
+    // while the last element does not count, since the end of the array is already reached
     @Test
-    void should_be_minus_one_step_for_one_zero_element() {
+    void should_be_one_step_for_one_zero_element() {
         int jumps = numJumps.minimumNumberOfJumps(new int[]{0});
 
-        assertEquals(-1, jumps);
+        assertEquals(1, jumps);
     }
 
     // [3] -> 1
