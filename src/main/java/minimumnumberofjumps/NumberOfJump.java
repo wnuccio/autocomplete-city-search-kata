@@ -34,6 +34,14 @@ public class NumberOfJump {
             return 1;
         }
 
+        if (ints.length == 2) {
+            if (ints[0] == 0) {
+                return -1;
+            }
+
+            return jumps(ints, 0);
+        }
+
         if (ints.length == 3) {
             if (ints[0] == 0) {
                 return -1;
@@ -41,10 +49,6 @@ public class NumberOfJump {
 
             int jumps = jumps(ints, ints[0]);
             return jumps == -1 ? -1 : ints[0] + jumps;
-        }
-
-        if (ints.length == 2) {
-            return jumps(ints, 0);
         }
 
 
