@@ -6,6 +6,12 @@ public class NumberOfJump {
             if (ints[0] == 0)
                 return -1;
 
+            if (ints[0] == 2)
+                return 2;
+
+            if (ints[0] == 1 && ints[1] >= 2)
+                return 2;
+
             if (ints[0] == 1)
                 return 3;
 

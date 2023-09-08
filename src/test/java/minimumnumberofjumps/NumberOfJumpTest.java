@@ -92,5 +92,25 @@ public class NumberOfJumpTest {
         assertEquals(3, jumps);
     }
 
+    // [1, 2, 1] -> 3
+    @Test
+    void should_be_two_for_three_elements_one_two_one() {
+        NumberOfJump numJumps = new NumberOfJump();
+
+        int jumps = numJumps.minimumNumberOfJumps(new int[]{1, 2, 1});
+
+        assertEquals(2, jumps);
+    }
+
+    // [2, 1, 1] -> 3
+    @Test
+    void should_be_two_for_three_elements_two_one_one() {
+        NumberOfJump numJumps = new NumberOfJump();
+
+        int jumps = numJumps.minimumNumberOfJumps(new int[]{2, 1, 1});
+
+        assertEquals(2, jumps);
+    }
+
 
 }
