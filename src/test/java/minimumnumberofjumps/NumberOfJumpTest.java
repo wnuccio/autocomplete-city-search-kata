@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
     Dimensions:
-    - array size: 0, 1, many
+    - array size: 1, many
     - array item: 0, 1, many
     - output: -1, 1, many
  */
@@ -40,5 +40,15 @@ public class NumberOfJumpTest {
         int jumps = numJumps.minimumNumberOfJumps(new int[]{3});
 
         assertEquals(1, jumps);
+    }
+
+    // [1, 1] -> 2
+    @Test
+    void should_be_two_steps_for_two_elements() {
+        NumberOfJump numJumps = new NumberOfJump();
+
+        int jumps = numJumps.minimumNumberOfJumps(new int[]{1, 2});
+
+        assertEquals(2, jumps);
     }
 }
