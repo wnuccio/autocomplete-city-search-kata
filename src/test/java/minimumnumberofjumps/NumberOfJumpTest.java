@@ -82,5 +82,15 @@ public class NumberOfJumpTest {
         assertEquals(-1, jumps);
     }
 
+    // [1, 1, 1] -> 3
+    @Test
+    void should_be_three_for_three_elements_one_one_one() {
+        NumberOfJump numJumps = new NumberOfJump();
+
+        int jumps = numJumps.minimumNumberOfJumps(new int[]{1, 1, 1});
+
+        assertEquals(3, jumps);
+    }
+
 
 }
