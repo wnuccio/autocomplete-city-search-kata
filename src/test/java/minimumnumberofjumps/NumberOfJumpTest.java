@@ -31,4 +31,14 @@ public class NumberOfJumpTest {
 
         assertEquals(-1, jumps);
     }
+
+    // [3] -> 1
+    @Test
+    void should_be_one_step_for_one_element_greater_than_one() {
+        NumberOfJump numJumps = new NumberOfJump();
+
+        int jumps = numJumps.minimumNumberOfJumps(new int[]{3});
+
+        assertEquals(1, jumps);
+    }
 }
