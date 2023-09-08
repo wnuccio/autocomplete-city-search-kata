@@ -40,7 +40,7 @@ public class NumberOfJumpTest {
         assertEquals(1, jumps);
     }
 
-    // [1, 1] -> 2
+    // [1, 2] -> 2
     @Test
     void should_be_two_steps_for_two_elements() {
         int jumps = numJumps.minimumNumberOfJumps(new int[]{1, 2});
@@ -60,10 +60,10 @@ public class NumberOfJumpTest {
 
     // [2, 1] -> 1
     @Test
-    void should_be_one_for_two_elements_when_first_is_two() {
+    void should_be_two_for_two_elements_when_first_is_two() {
         int jumps = numJumps.minimumNumberOfJumps(new int[]{2, 1});
 
-        assertEquals(1, jumps);
+        assertEquals(2, jumps);
     }
 
     // [0, 1, 1] -> -1
@@ -84,10 +84,10 @@ public class NumberOfJumpTest {
 
     // [1, 2, 1] -> 3
     @Test
-    void should_be_two_for_three_elements_one_two_one() {
+    void should_be_three_for_three_elements_one_two_one() {
         int jumps = numJumps.minimumNumberOfJumps(new int[]{1, 2, 1});
 
-        assertEquals(2, jumps);
+        assertEquals(3, jumps);
     }
 
     // [2, 1, 1] -> 3
