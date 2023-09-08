@@ -21,4 +21,14 @@ public class NumberOfJumpTest {
 
         assertEquals(1, jumps);
     }
+
+    // [0] -> -1
+    @Test
+    void should_be_minus_one_step_for_one_zero_element() {
+        NumberOfJump numJumps = new NumberOfJump();
+
+        int jumps = numJumps.minimumNumberOfJumps(new int[]{0});
+
+        assertEquals(-1, jumps);
+    }
 }
