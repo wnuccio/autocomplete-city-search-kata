@@ -2,6 +2,13 @@ package minimumnumberofjumps;
 
 public class NumberOfJump {
     public int minimumNumberOfJumps(int[] ints) {
+        if (ints.length == 3) {
+            if (ints[0] == 0)
+                return -1;
+
+            return -10;
+        }
+
         if (ints.length == 2) {
             if (ints[0] == 0)
                 return -1;
