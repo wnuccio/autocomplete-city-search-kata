@@ -96,5 +96,13 @@ public class NumberOfJumpTest {
         assertEquals(2, jumps);
     }
 
+    // [1, 0, 1] -> 3
+    @Test
+    void should_be_minus_one_for_three_elements_with_zero_as_second() {
+        int jumps = numJumps.minimumNumberOfJumps(new int[]{1, 0, 1});
+
+        assertEquals(-1, jumps);
+    }
+
 
 }
